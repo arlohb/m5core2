@@ -1,0 +1,24 @@
+[package]
+name = "m5core2"
+version = "0.1.0"
+authors = ["arlohb <arlo@urwick.co.uk>"]
+edition = "2021"
+resolver = "2"
+
+[profile.release]
+opt-level = "s"
+
+[profile.dev]
+debug = true # Symbols are nice and they don't increase the size on Flash
+opt-level = "z"
+
+[dependencies]
+esp-idf-sys = { version = "0.31.6", features = ["binstart", "std"] }
+esp-idf-hal = "0.38"
+embedded-svc = "0.22"
+embedded-hal = "0.2"
+esp-idf-svc = "0.42"
+
+[build-dependencies]
+embuild = "0.29"
+anyhow = "1"
